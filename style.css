@@ -133,10 +133,11 @@ body{
 }
 .Easy-sgin-in-wrap .sign-button-list li button{
 	width: 465px;
-	height: 56px;
+	height: 65px;
 	border: solid 1px var(--border-gray-color);
 	text-align: left;
 	background: white;
+	border-radius: 10px;
 }
 .Easy-sgin-in-wrap .sign-button-list li button i{
 	padding-left: 15px;
@@ -195,4 +196,8 @@ footer .copyright-wrap span{
 	margin-right: 340px; 
 	color: red;    
     display: none;
+}
+
+.sign-button-list li{
+	border-radius: 5px;
 }

@@ -40,8 +40,8 @@
 			<ul class="sign-button-list">
 				<li><button onclick ="location.href='www.naver.com'"><i class="fa fa-google" aria-hidden="true"></i><span>구글</span></button></li>
 				<li><button onclick ="location.href='www.naver.com'"><i class="fab fa-facebook-square"></i><span>페이스북</span></button></li>
-				<li><button onclick ="location.href='./kakao_login.html'"><i class='fab fa-kickstarter'></i><span>카카오톡</span></button></li>
-			
+				<!-- <li><button onclick ="location.href='./kakao_login.html'"><i class='fab fa-kickstarter'></i><span>카카오톡</span></button></li> -->
+				<li><a href="javascript:kakaoLogin();"><img src="./img/kakao_login_large_wide.png" width="465px" height="64px"></a></li>
 			</ul>
 			<p class="forget-msg">비밀번호 찾기 | 아이디 찾기 | 회원가입</p>
 		</section>
@@ -55,3 +55,23 @@
 	<script src="main.js"></script>
 </body>
 </html>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+    window.Kakao.init("4c8a92850f82b116fc509d42dadc2c73");
+
+    function kakaoLogin(){
+        window.Kakao.Auth.login({
+            scope:'profile_nickname, account_email',
+            success:function(authobj) {
+                console.log(authobj);
+                window.Kakao.API.request({
+                    url:'/v2/user/me',
+                    success: res => {
+                        const kakao_account=res.kakao_account;
+                        console.log(kakao_account);
+                    }
+                });
+            }
+        });
+    }
+</script>
