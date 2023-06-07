@@ -1,0 +1,21 @@
+<a href="javascript:kakaoLogin();"><img src="./img/kakao_login_medium_wide.png" width="300px"></a>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+    window.Kakao.init("4c8a92850f82b116fc509d42dadc2c73");
+
+    function kakaoLogin(){
+        window.Kakao.Auth.login({
+            scope:'profile_nickname, account_email, gender',
+            success:function(authobj) {
+                console.log(authobj);
+                window.Kakao.API.request({
+                    url:'/v2/user/me',
+                    success: res => {
+                        const kakao_account=res.kakao_account;
+                        console.log(kakao_account);
+                    }
+                });
+            }
+        });
+    }
+</script>
