@@ -2,10 +2,13 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>로그인</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.js" integrity="sha384-qHnYCmOpf1XIa9vJV8wp9XCcCzkvJdksnnMRrRIdCy5/wqEe51TqIpYrqRP+sbT6" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </head>
 
 <body>
@@ -38,10 +41,11 @@
 		<section class="Easy-sgin-in-wrap">
 			<h2>다른 로그인</h2>
 			<ul class="sign-button-list">
-				<li><button onclick ="location.href='www.naver.com'"><i class="fa fa-google" aria-hidden="true"></i><span>구글</span></button></li>
-				<li><button onclick ="location.href='www.naver.com'"><i class="fab fa-facebook-square"></i><span>페이스북</span></button></li>
+				<li><button class="btn1" onclick ="location.href='www.naver.com'"><i class="fa fa-google" aria-hidden="true"></i><span>구글</span></button></li>
+				<li><button class="btn2" onclick ="location.href='www.naver.com'"><i class="fab fa-facebook-square"></i><span>페북</span></button></li>
 				<!-- <li><button onclick ="location.href='./kakao_login.html'"><i class='fab fa-kickstarter'></i><span>카카오톡</span></button></li> -->
-				<li><a href="javascript:kakaoLogin();"><img src="./img/kakao_login_large_wide.png" width="465px" height="64px"></a></li>
+				<li><a href="javascript:kakaoLogin();"><img src="./img/kakao.PNG" width="105px" height="40px"></a></li>
+				<li  width="465px" height="64px"><span id="naver_id_login"></span></li>
 			</ul>
 			<p class="forget-msg">비밀번호 찾기 | 아이디 찾기 | 회원가입</p>
 		</section>
@@ -53,6 +57,15 @@
 		</div>
 	</div>
 	<script src="main.js"></script>
+	<script type="text/javascript">
+		var naver_id_login = new naver_id_login("3259u96mlX9Ur3PC2uZJ", "https://web-login-dcse2blid7tt03.sel4.cloudtype.app/");
+		var state = naver_id_login.getUniqState();
+		naver_id_login.setButton("white", 2,40);
+		naver_id_login.setDomain("https://web-login-dcse2blid7tt03.sel4.cloudtype.app/");
+		naver_id_login.setState(state);
+		naver_id_login.setPopup();
+		naver_id_login.init_naver_id_login();
+	</script>
 </body>
 </html>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
